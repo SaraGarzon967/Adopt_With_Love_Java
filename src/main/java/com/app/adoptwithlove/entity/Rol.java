@@ -4,16 +4,15 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name ="adopcion")
+@Table(name ="rol")
 @Data
 
-public class adopcion {
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_adopcion", nullable = false)
+    @Column(name = "id_rol", nullable = false)
     private  Long id;
 
-    @Column(name = "fecha", nullable = false)
-    private String fecha;
-
+    @Column(name = "nombreRol", nullable = false)
+    private String nombreRol;
 }

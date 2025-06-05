@@ -6,7 +6,7 @@ import lombok.Data;
 @Entity
 @Table(name ="productos")
 @Data
-public class productos {
+public class Productos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto", nullable = false)
@@ -20,5 +20,5 @@ public class productos {
 
     @Column(name="tipoProducto", nullable = false)
     private String tipoProducto;
-    
+
 }

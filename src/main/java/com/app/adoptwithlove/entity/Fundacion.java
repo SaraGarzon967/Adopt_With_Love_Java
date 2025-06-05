@@ -6,14 +6,14 @@ import lombok.Data;
 @Entity
 @Table(name ="fundacion")
 @Data
-public class fundacion {
+public class Fundacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_fundacion", nullable = false)
     private Long id;
 
     @Column(name = "nombre_fundacion", nullable = false)
-    private Boolean nombre_fundacion;
+    private String nombre_fundacion;
 
     @Column(name = "direccion", nullable = false, length = 100)
     private String direccion;
