@@ -29,7 +29,7 @@ public class FundacionService implements Idao<Fundacion, Long>{
     public Fundacion create(Fundacion entity){
         return Fundacion.save(entity);
     }
-    
+
 
     @Transactional
     @Override
