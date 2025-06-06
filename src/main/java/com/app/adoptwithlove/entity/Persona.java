@@ -27,7 +27,7 @@ public class Persona {
     @Column(name="contrasena", nullable = false, length = 100)
     private String contrasena;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "rol_id", referencedColumnName = "id")
-    private rol rol;
+    private rol rol;*/
 }
