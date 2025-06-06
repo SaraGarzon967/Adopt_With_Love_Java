@@ -11,9 +11,18 @@ public class Adopcion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_adopcion", nullable = false)
-    private  Long id;
+    private Long id;
 
     @Column(name = "fecha", nullable = false)
     private String fecha;
+
+
+    @ManyToOne
+    @JoinColumn(name = "id_animal")
+    private Animal animal;
+
+    @ManyToOne
+    @JoinColumn(name = "persona_id_persona")
+    private Persona persona;
 
 }

@@ -3,6 +3,8 @@ package com.app.adoptwithlove.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name ="animal")
 @Data
@@ -24,5 +26,10 @@ public class Animal {
     @Column(name="tipo_animal", nullable = false, length = 100)
     private String tipo_animal;
 
+    @ManyToOne
+    @JoinColumn(name = "fundacion_id_fundacion")
+    private Fundacion fundacion;
 
+    @OneToMany(mappedBy = "animal")
+    private List<Adopcion> adopciones;
 }

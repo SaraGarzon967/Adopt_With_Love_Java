@@ -3,6 +3,8 @@ package com.app.adoptwithlove.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name ="persona")
 @Data
@@ -27,7 +29,16 @@ public class Persona {
     @Column(name="contrasena", nullable = false, length = 100)
     private String contrasena;
 
-    /*@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "rol_id", referencedColumnName = "id")
-    private rol rol;*/
+    @OneToOne
+    @JoinColumn(name = "rol_id_rol")  // FK en persona
+    private Rol rol;
+
+    @OneToMany(mappedBy = "persona")
+    private List<Fundacion> fundaciones;
+
+    @OneToMany(mappedBy = "persona")
+    private List<Productos> productos;
+
+    @OneToMany(mappedBy = "persona")
+    private List<Adopcion> adopciones;
 }

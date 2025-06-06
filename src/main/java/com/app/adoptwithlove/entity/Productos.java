@@ -21,4 +21,7 @@ public class Productos {
     @Column(name="tipoProducto", nullable = false)
     private String tipoProducto;
 
+    @ManyToOne
+    @JoinColumn(name = "persona_id_persona")
+    private Persona persona;
 }
