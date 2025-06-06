@@ -12,7 +12,6 @@ import java.util.List;
 public class AdopcionService implements Idao<Adopcion, Long>{
     @Autowired
     private AdopcionRepository Adopcion;
-
     @Override
     public List<Adopcion> getAll() {
         return Adopcion.findAll();
