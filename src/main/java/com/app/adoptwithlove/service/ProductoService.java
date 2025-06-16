@@ -1,7 +1,7 @@
 package com.app.adoptwithlove.service;
 
 import com.app.adoptwithlove.entity.Productos;
-import com.app.adoptwithlove.repository.ProductosRepository;
+import com.app.adoptwithlove.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ProductoService {
 
     @Autowired
-    private ProductosRepository productosRepository;
+    private ProductoRepository productosRepository;
 
     
     public List<Productos> obtenerTodosLosProductos() {
