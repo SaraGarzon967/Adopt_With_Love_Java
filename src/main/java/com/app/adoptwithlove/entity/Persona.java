@@ -1,13 +1,21 @@
 package com.app.adoptwithlove.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+
 
 import java.util.List;
 
 @Entity
 @Table(name ="persona")
-@Data
+@Getter
+@Setter
+@ToString(exclude = {"rol", "fundaciones", "productos", "adopciones"})
+@EqualsAndHashCode(exclude = {"rol", "fundaciones", "productos", "adopciones"})
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,20 +31,26 @@ public class Persona {
     @Column(name="contacto", nullable = false)
     private String contacto;
 
-    @Column(name="fecha_nacimiento", nullable = false, length = 100)
-    private String fecha_nacimiento;
+    @Column(name="fechaNacimiento", nullable = false, length = 100)
+    private String fechaNacimiento;
 
     @Column(name="contrasena", nullable = false, length = 100)
     private String contrasena;
 
-    @OneToOne
-    @JoinColumn(name = "rol_id_rol")  // FK en persona
+
+    @Column(name="email", nullable = false, length = 100)
+    private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "rol_id_rol")
     private Rol rol;
 
     @OneToMany(mappedBy = "persona")
+    @JsonManagedReference
     private List<Fundacion> fundaciones;
 
     @OneToMany(mappedBy = "persona")
+    @JsonManagedReference
     private List<Productos> productos;
 
     @OneToMany(mappedBy = "persona")

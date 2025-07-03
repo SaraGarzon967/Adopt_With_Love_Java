@@ -1,15 +1,21 @@
 package com.app.adoptwithlove.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
-@Table(name ="rol")
-@Data
-
+@Table(name = "rol")
+@Getter
+@Setter
+@ToString(exclude = "personas")
+@EqualsAndHashCode(exclude = "personas")
 public class Rol {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rol", nullable = false)
@@ -18,6 +24,8 @@ public class Rol {
     @Column(name = "nombreRol", nullable = false)
     private String nombreRol;
 
-    @OneToOne(mappedBy = "rol") // referencia inversa, no tiene FK aquí
-    private Persona persona;
+    @OneToMany(mappedBy = "rol")
+    @JsonIgnore // evita bucle al serializar
+    private List<Persona> personas;
+
 }
